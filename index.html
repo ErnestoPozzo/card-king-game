@@ -8,11 +8,11 @@
 </head>
 <body>
     <div class="container">
+        <button id="button" onclick="start(buttonDisplay,drawCard)">Draw</button>
         <div onclick="drawCard()" class="flex__container">
-            <div id="card__result" class="card__img"></div>
-            <button id="button" onclick="start(buttonDisplay,drawCard)">Draw</button>
+            <div id="card__drawn" class="card__img">
+            </div>
             <p id="winning"></p>
-            <script src="app.js"></script>
         </div>
     </div>
     <script src="app.js"></script>
