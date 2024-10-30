@@ -16,6 +16,7 @@ const tenSpades = `<img src="img/10.png" alt="Ten of Spades"></img>`;
 const jSpades = `<img src="img/11.png" alt="J of Spades"></img>`;
 const qSpades = `<img src="img/12.png" alt="Queen of Spades"></img>`;
 const kSpades = `<img src="img/13.png" alt="King of Spades"></img>`;
+// card deck array
 const cardDeck = [
   aceSpades,
   twoSpades,
@@ -31,6 +32,7 @@ const cardDeck = [
   qSpades,
   kSpades,
 ];
+// function expressions
 buttonDisplay = () => {
   buttonDraw.style.display = "none";
 };
@@ -45,8 +47,8 @@ drawCard = () => {
     console.log(cardDeck.length);
   }
 };
-
-function start(one, two) {
+// callback
+start = (one, two) => {
   one();
   two();
 }
