@@ -8,10 +8,12 @@
 </head>
 <body>
     <div class="container">
-        <button id="button" onclick="startGame(buttonDisplayNone,drawCard,promptGame)">Juega</button>
-        <div onclick="keepPlaying(drawCard,promptGame)" class="flex__container">
+        <button class="btn" id="button" onclick="startGame(buttonDisplayNone,drawCard,promptGame)">Juega</button>
+        <div onclick="keepPlaying(drawCard,promptGame)" class="card__container">
             <div id="card__drawn" class="card__img">
             </div>
+        </div>
+        <div class="text__game card__container">
             <p id="promptGameText"></p>
             <p id="winning"></p>
         </div>
