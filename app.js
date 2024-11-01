@@ -2,6 +2,7 @@
 const buttonDraw = document.getElementById("button");
 const cardDrawn = document.getElementById("card__drawn");
 const winText = document.getElementById("winning");
+const promptGameText = document.getElementById("promptGameText");
 //consts img of the array
 const aceSpades = `<img src="img/1.png" alt="Ace of Spades">`;
 const twoSpades = `<img src="img/2.png" alt="Two of Spades">`;
@@ -56,6 +57,8 @@ const jDiamonds = `<img src="img/50.png" alt="J of Diamonds">`;
 const qDiamonds = `<img src="img/51.png" alt="Queen of Diamonds">`;
 const kDiamonds = `<img src="img/52.png" alt="King of Diamonds">`;
 // card deck array
+let cardDeckPlayed = [];
+let cardPlayed = [];
 const cardDeck = [
   aceSpades,
   twoSpades,
@@ -111,43 +114,168 @@ const cardDeck = [
   kHeart,
 ];
 // function expressions
-buttonDisplay = () => {
+buttonDisplayNone = () => {
   buttonDraw.style.display = "none";
 };
 drawCard = () => {
+  console.log("Removed:")
+  console.log(cardDeckPlayed);
   if (
     cardDeck.indexOf(kHeart) == -1 &&
     cardDeck.indexOf(kDiamonds) == -1 &&
     cardDeck.indexOf(kSpades) == -1 &&
-    cardDeck.indexOf(kTrebol)
+    cardDeck.indexOf(kTrebol) == -1
   ) {
-    winText.textContent = `You won!!!!`;
-  }
-   else {
+    buttonDraw.style.display = "inline-block";
+    cardDeck.push(...cardDeckPlayed);
+    cardDeckPlayed = [];
+    cardDrawn.innerHTML = ``;
+    promptGameText.textContent = `Nueva Baraja`;
+    winText.textContent = ``;
+    console.log(`Reinicio`);
+  } else {
     let randomIndex = Math.floor(Math.random() * cardDeck.length);
     cardDrawn.innerHTML = `${cardDeck[randomIndex]}`;
-    cardDeck.splice(randomIndex, 1);
+    cardPlayed = cardDeck.splice(randomIndex, 1);
+    cardDeckPlayed.push(...cardPlayed);
     console.log(cardDeck.length);
   }
 };
 promptGame = () => {
-  // console.log(cardDrawn.innerHTML);
-  // console.log(twoDiamonds);
-  if(cardDrawn.innerHTML === twoDiamonds){
-    // console.log(`TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST`);
-    // winText.textContent = `HELLO`;
+  if (
+    cardDrawn.innerHTML === aceDiamonds ||
+    cardDrawn.innerHTML === aceHeart ||
+    cardDrawn.innerHTML === aceSpades ||
+    cardDrawn.innerHTML === aceTrebol
+  ) {
+    console.log(`"A" Todos toman`);
+    promptGameText.textContent = `Todos toman`;
   }
-}
+  if (
+    cardDrawn.innerHTML === twoDiamonds ||
+    cardDrawn.innerHTML === twoHeart ||
+    cardDrawn.innerHTML === twoSpades ||
+    cardDrawn.innerHTML === twoTrebol
+  ) {
+    console.log(`"2" Pulgar izquierdo en la mesa.`);
+    promptGameText.textContent = `Pulgar izquierdo en la mesa.`;
+  }
+  if (
+    cardDrawn.innerHTML === threeDiamonds ||
+    cardDrawn.innerHTML === threeHeart ||
+    cardDrawn.innerHTML === threeSpades ||
+    cardDrawn.innerHTML === threeTrebol
+  ) {
+    console.log(`"3" Toma el de la derecha.`);
+    promptGameText.textContent = `Toma el de la derecha`;
+  }
+  if (
+    cardDrawn.innerHTML === fourDiamonds ||
+    cardDrawn.innerHTML === fourHeart ||
+    cardDrawn.innerHTML === fourSpades ||
+    cardDrawn.innerHTML === fourTrebol
+  ) {
+    console.log(`"4" Toma el de la izquierda`);
+    promptGameText.textContent = `Toma el de la izquierda`;
+  }
+  if (
+    cardDrawn.innerHTML === fiveDiamonds ||
+    cardDrawn.innerHTML === fiveHeart ||
+    cardDrawn.innerHTML === fiveSpades ||
+    cardDrawn.innerHTML === fiveTrebol
+  ) {
+    console.log(`"5" Tu tomas un trago`);
+    promptGameText.textContent = `Tu tomas un trago`;
+  }
+  if (
+    cardDrawn.innerHTML === sixDiamonds ||
+    cardDrawn.innerHTML === sixHeart ||
+    cardDrawn.innerHTML === sixSpades ||
+    cardDrawn.innerHTML === sixTrebol
+  ) {
+    console.log(`"6" Eliges una perra`);
+    promptGameText.textContent = `Eliges una perra`;
+  }
+  if (
+    cardDrawn.innerHTML === sevenDiamonds ||
+    cardDrawn.innerHTML === sevenHeart ||
+    cardDrawn.innerHTML === sevenSpades ||
+    cardDrawn.innerHTML === sevenTrebol
+  ) {
+    console.log(`"7" Cultura Chupistica`);
+    promptGameText.textContent = `Cultura Chupistica`;
+  }
+  if (
+    cardDrawn.innerHTML === eightDiamonds ||
+    cardDrawn.innerHTML === eightHeart ||
+    cardDrawn.innerHTML === eightSpades ||
+    cardDrawn.innerHTML === eightTrebol
+  ) {
+    console.log(`"8" Pones una regla`);
+    promptGameText.textContent = `Pones una regla`;
+  }
+  if (
+    cardDrawn.innerHTML === nineDiamonds ||
+    cardDrawn.innerHTML === nineHeart ||
+    cardDrawn.innerHTML === nineSpades ||
+    cardDrawn.innerHTML === nineTrebol
+  ) {
+    console.log(`"9" Yo nunca`);
+    promptGameText.textContent = `Yo nunca`;
+  }
+  if (
+    cardDrawn.innerHTML === tenDiamonds ||
+    cardDrawn.innerHTML === tenHeart ||
+    cardDrawn.innerHTML === tenSpades ||
+    cardDrawn.innerHTML === tenTrebol
+  ) {
+    console.log(`"10" Invitas un trago a quien quieras`);
+    promptGameText.textContent = `Invitas un trago a quien quieras`;
+  }
+  if (
+    cardDrawn.innerHTML === jDiamonds ||
+    cardDrawn.innerHTML === jHeart ||
+    cardDrawn.innerHTML === jSpades ||
+    cardDrawn.innerHTML === jTrebol
+  ) {
+    console.log(`"J" Hombres Toman`);
+    promptGameText.textContent = `Hombres Toman`;
+  }
+  if (
+    cardDrawn.innerHTML === qDiamonds ||
+    cardDrawn.innerHTML === qHeart ||
+    cardDrawn.innerHTML === qSpades ||
+    cardDrawn.innerHTML === qTrebol
+  ) {
+    console.log(`"Q" Mujeres Toman`);
+    promptGameText.textContent = `Mujeres Toman`;
+  }
+  if (
+    cardDrawn.innerHTML === kDiamonds ||
+    cardDrawn.innerHTML === kHeart ||
+    cardDrawn.innerHTML === kSpades ||
+    cardDrawn.innerHTML === kTrebol
+  ) {
+    console.log(`"K" Sigue jugando`);
+    promptGameText.textContent = `Sigue jugando`;
+  }
+  if (
+    cardDeck.indexOf(kHeart) == -1 &&
+    cardDeck.indexOf(kDiamonds) == -1 &&
+    cardDeck.indexOf(kSpades) == -1 &&
+    cardDeck.indexOf(kTrebol) == -1
+  ) {
+    promptGameText.textContent = `Felicidades`;
+    winText.textContent = `Ganaste!!!!`;
+  }
+};
 // callbacks
-startGame = (one, two,three) => {
+startGame = (one, two, three) => {
   one();
   two();
   three();
 };
-keepPlaying = (one,two) => {
+keepPlaying = (one, two) => {
   one();
   two();
-}
-
-
-
+};
