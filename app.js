@@ -3,6 +3,9 @@ const buttonDraw = document.getElementById("button");
 const cardDrawn = document.getElementById("card__drawn");
 const winText = document.getElementById("winning");
 const promptGameText = document.getElementById("promptGameText");
+// -- FASTER  --
+// const newImgTag = document.createElement('img');
+
 //consts img of the array
 const aceSpades = `<img src="img/1.png" alt="Ace of Spades">`;
 const twoSpades = `<img src="img/2.png" alt="Two of Spades">`;
@@ -56,6 +59,60 @@ const tenDiamonds = `<img src="img/49.png" alt="Ten of Diamonds">`;
 const jDiamonds = `<img src="img/50.png" alt="J of Diamonds">`;
 const qDiamonds = `<img src="img/51.png" alt="Queen of Diamonds">`;
 const kDiamonds = `<img src="img/52.png" alt="King of Diamonds">`;
+
+// -- FASTER  --
+// const aceSpades = "img/1.png";
+// const twoSpades = "img/2.png";
+// const threeSpades = "img/3.png";
+// const fourSpades = "img/4.png";
+// const fiveSpades = "img/5.png";
+// const sixSpades = "img/6.png";
+// const sevenSpades = "img/7.png";
+// const eightSpades = "img/8.png";
+// const nineSpades = "img/9.png";
+// const tenSpades = "img/10.png";
+// const jSpades = "img/11.png";
+// const qSpades = "img/12.png";
+// const kSpades = "img/13.png";
+// const aceTrebol = "img/14.png";
+// const twoTrebol = "img/15.png";
+// const threeTrebol = "img/16.png";
+// const fourTrebol = "img/17.png";
+// const fiveTrebol = "img/18.png";
+// const sixTrebol = "img/19.png";
+// const sevenTrebol = "img/20.png";
+// const eightTrebol = "img/21.png";
+// const nineTrebol = "img/22.png";
+// const tenTrebol = "img/23.png";
+// const jTrebol = "img/24.png";
+// const qTrebol = "img/25.png";
+// const kTrebol = "img/26.png";
+// const aceHeart = "img/27.png";
+// const twoHeart = "img/28.png";
+// const threeHeart = "img/29.png";
+// const fourHeart = "img/30.png";
+// const fiveHeart = "img/31.png";
+// const sixHeart = "img/32.png";
+// const sevenHeart = "img/33.png";
+// const eightHeart = "img/34.png";
+// const nineHeart = "img/35.png";
+// const tenHeart = "img/36.png";
+// const jHeart = "img/37.png";
+// const qHeart = "img/38.png";
+// const kHeart = "img/39.png";
+// const aceDiamonds = "img/40.png";
+// const twoDiamonds = "img/41.png";
+// const threeDiamonds = "img/42.png";
+// const fourDiamonds = "img/43.png";
+// const fiveDiamonds = "img/44.png";
+// const sixDiamonds = "img/45.png";
+// const sevenDiamonds = "img/46.png";
+// const eightDiamonds = "img/47.png";
+// const nineDiamonds = "img/48.png";
+// const tenDiamonds = "img/49.png";
+// const jDiamonds = "img/50.png";
+// const qDiamonds = "img/51.png";
+// const kDiamonds = "img/52.png";
 // card deck array
 let cardDeckPlayed = [];
 let cardPlayed = [];
@@ -118,6 +175,8 @@ buttonDisplayNone = () => {
   buttonDraw.style.display = "none";
 };
 drawCard = () => {
+  // -- FASTER  --
+  // cardDrawn.removeChild(document.getElementById("card"));
   console.log("Removed:")
   console.log(cardDeckPlayed);
   if (
@@ -133,8 +192,17 @@ drawCard = () => {
     promptGameText.textContent = `Nueva Baraja`;
     winText.textContent = ``;
     console.log(`Reinicio`);
+    newImgTag.id = 'card';
+    newImgTag.src = "";
+    cardDrawn.appendChild(newImgTag);
   } else {
     let randomIndex = Math.floor(Math.random() * cardDeck.length);
+    
+    // -- FASTER  --
+    // faster html creation
+    // newImgTag.src = cardDeck[randomIndex];
+    // newImgTag.id = 'card';
+    // cardDrawn.appendChild(newImgTag);
     cardDrawn.innerHTML = `${cardDeck[randomIndex]}`;
     cardPlayed = cardDeck.splice(randomIndex, 1);
     cardDeckPlayed.push(...cardPlayed);
