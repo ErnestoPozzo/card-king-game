@@ -1,12 +1,17 @@
-// const document
+// ------     ||const document||      ------
+
 const buttonDraw = document.getElementById("button");
 const cardDrawn = document.getElementById("card__drawn");
 const winText = document.getElementById("winning");
 const promptGameText = document.getElementById("promptGameText");
+
 // -- FASTER  --
 // const newImgTag = document.createElement('img');
+// -- FASTER  --
 
-//consts img of the array
+// ------     ||img of the array||     ------
+
+// -- SLOW --
 const aceSpades = `<img src="img/1.png" alt="Ace of Spades">`;
 const twoSpades = `<img src="img/2.png" alt="Two of Spades">`;
 const threeSpades = `<img src="img/3.png" alt="Three of Spades">`;
@@ -59,6 +64,8 @@ const tenDiamonds = `<img src="img/49.png" alt="Ten of Diamonds">`;
 const jDiamonds = `<img src="img/50.png" alt="J of Diamonds">`;
 const qDiamonds = `<img src="img/51.png" alt="Queen of Diamonds">`;
 const kDiamonds = `<img src="img/52.png" alt="King of Diamonds">`;
+// -- SLOW --
+
 
 // -- FASTER  --
 // const aceSpades = "img/1.png";
@@ -113,7 +120,10 @@ const kDiamonds = `<img src="img/52.png" alt="King of Diamonds">`;
 // const jDiamonds = "img/50.png";
 // const qDiamonds = "img/51.png";
 // const kDiamonds = "img/52.png";
-// card deck array
+// -- FASTER  --
+
+// ------     ||card deck array||     ------
+
 let cardDeckPlayed = [];
 let cardPlayed = [];
 const cardDeck = [
@@ -170,14 +180,19 @@ const cardDeck = [
   qHeart,
   kHeart,
 ];
-// function expressions
+
+// ------     ||function expressions||     ------
+
 buttonDisplayNone = () => {
   buttonDraw.style.display = "none";
 };
 drawCard = () => {
+
   // -- FASTER  --
   // cardDrawn.removeChild(document.getElementById("card"));
-  console.log("Removed:")
+  // -- FASTER  --
+
+  console.log("Removed:");
   console.log(cardDeckPlayed);
   if (
     cardDeck.indexOf(kHeart) == -1 &&
@@ -192,18 +207,23 @@ drawCard = () => {
     promptGameText.textContent = `Nueva Baraja`;
     winText.textContent = ``;
     console.log(`Reinicio`);
-    newImgTag.id = 'card';
+    newImgTag.id = "card";
     newImgTag.src = "";
     cardDrawn.appendChild(newImgTag);
   } else {
     let randomIndex = Math.floor(Math.random() * cardDeck.length);
-    
+
     // -- FASTER  --
     // faster html creation
     // newImgTag.src = cardDeck[randomIndex];
     // newImgTag.id = 'card';
     // cardDrawn.appendChild(newImgTag);
+    // -- FASTER  --
+
+    // -- SLOW --
     cardDrawn.innerHTML = `${cardDeck[randomIndex]}`;
+    // -- SLOW --
+
     cardPlayed = cardDeck.splice(randomIndex, 1);
     cardDeckPlayed.push(...cardPlayed);
     console.log(cardDeck.length);
@@ -337,7 +357,8 @@ promptGame = () => {
     winText.textContent = `Ganaste!!!!`;
   }
 };
-// callbacks
+
+// ------     ||callbacks||     ------
 startGame = (one, two, three) => {
   one();
   two();
