@@ -1,15 +1,15 @@
-// ------     ||const document||      ------
+//#region ------     ||const document||      ------
 
 const buttonDraw = document.getElementById("button");
 const cardDrawn = document.getElementById("card__drawn");
 const winText = document.getElementById("winning");
 const promptGameText = document.getElementById("promptGameText");
-
-// -- FASTER  --
+//#endregion
+//#region -- FASTER  --
 // const newImgTag = document.createElement('img');
-// -- FASTER  --
+//#endregion -- FASTER  --
 
-// ------     ||img of the array||     ------
+//#region ------     ||const img of the array||     ------
 
 // -- SLOW --
 const aceSpades = `<img src="img/1.png" alt="Ace of Spades">`;
@@ -122,8 +122,8 @@ const kDiamonds = `<img src="img/52.png" alt="King of Diamonds">`;
 // const kDiamonds = "img/52.png";
 // -- FASTER  --
 
-// ------     ||card deck array||     ------
-
+//#endregion ------     ||const img of the array||     ------
+//#region ------     ||Card Deck arrays||           ------
 let cardDeckPlayed = [];
 let cardPlayed = [];
 const cardDeck = [
@@ -180,17 +180,17 @@ const cardDeck = [
   qHeart,
   kHeart,
 ];
-
-// ------     ||function expressions||     ------
+//#endregion
+//#region ------     ||function expressions||     ------
 
 buttonDisplayNone = () => {
   buttonDraw.style.display = "none";
 };
 drawCard = () => {
 
-  // -- FASTER  --
+  // --#region FASTER  --
   // cardDrawn.removeChild(document.getElementById("card"));
-  // -- FASTER  --
+  // --#endregion FASTER  --
 
   console.log("Removed:");
   console.log(cardDeckPlayed);
@@ -213,16 +213,14 @@ drawCard = () => {
   } else {
     let randomIndex = Math.floor(Math.random() * cardDeck.length);
 
-    // -- FASTER  --
+    //#region -- FASTER  --
     // faster html creation
     // newImgTag.src = cardDeck[randomIndex];
     // newImgTag.id = 'card';
     // cardDrawn.appendChild(newImgTag);
-    // -- FASTER  --
+    //#endregion -- FASTER  --
 
-    // -- SLOW --
     cardDrawn.innerHTML = `${cardDeck[randomIndex]}`;
-    // -- SLOW --
 
     cardPlayed = cardDeck.splice(randomIndex, 1);
     cardDeckPlayed.push(...cardPlayed);
@@ -368,3 +366,5 @@ keepPlaying = (one, two) => {
   one();
   two();
 };
+
+//#endregion
