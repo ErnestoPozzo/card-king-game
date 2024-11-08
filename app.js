@@ -1,3 +1,5 @@
+//todo CHANGE from innerHTML to create element
+//todo new type files for img, from PNG to WebP
 //#region ------     ||const document||      ------
 
 const buttonDraw = document.getElementById("button");
